@@ -1,0 +1,16 @@
+/**!
+*/
+
+body{
+    width: 300px;
+}
+
+#spinner, #result, #failed {
+    display: none;
+}
+
+#failed {
+    text-align: center;
+    font-size: 140%;
+    font-weight: bold;
+}

@@ -1,0 +1,7 @@
+/morank/*.js
+/morank/*.css
+/morank/*.html
+/node_modules
+morank/*.png
+/bower_components
+/morank/*.svg

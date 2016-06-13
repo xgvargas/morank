@@ -1,0 +1,88 @@
+doctype html
+html
+  head
+    title Morank
+    //- meta(name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(type="text/css" rel="stylesheet" href="lib/materialize.min.css")
+    link(type="text/css" rel="stylesheet" href="popup.css")
+
+  body
+    .container
+      #form
+        .row
+          .col.s12
+            .input-field
+              input#title.validate(type="text" value="reservoir dogs")
+              label Title
+            .input-field
+              input#year.validate(type="number" value="111")
+              label Year
+        .row
+          .col.s6.offset-s6
+            a#search.waves-effect.waves-light.btn Procurar
+
+      #spinner
+        .preloader-wrapper.active
+          .spinner-layer.spinner-red-only
+            .circle-clipper.left
+              .circle
+            .gap-patch
+              .circle
+            .circle-clipper.right
+              .circle
+
+      #failed
+        .row
+          .col.s12.red-text Movie not found!
+
+      #result
+        .row
+          p Title:
+            span#Title
+          p Released:
+            span#Released
+          p Genre:
+            span#Genre
+          p Runtime:
+            span#Runtime
+          p Actors:
+            span#Actors
+          p Awards:
+            span#Awards
+          p Country:
+            span#Country
+          p Director:
+            span#Director
+          p Language:
+            span#Language
+          p Metascore:
+            span#Metascore
+          p Plot:
+            span#Plot
+          p Poster:
+            span#Poster
+          p Production:
+            span#Production
+          p Type:
+            span#Type
+          p Writer:
+            span#Writer
+          p imdbRating:
+            span#imdbRating
+          p imdbVotes:
+            span#imdbVotes
+          p tomatoFresh:
+            span#tomatoFresh
+          p tomatoMeter:
+            span#tomatoMeter
+          p tomatoRating:
+            span#tomatoRating
+          p tomatoReviews:
+            span#tomatoReviews
+          p tomatoRotten:
+            span#tomatoRotten
+
+    script(src="lib/jquery.min.js")
+    script(src="lib/materialize.min.js")
+    script(src="popup.js")

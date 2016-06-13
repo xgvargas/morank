@@ -1,0 +1,24 @@
+{
+  "name": "morank",
+  "description": "Movie Ranking",
+  "main": "app.js",
+  "authors": [
+    "Gustavo Vargas"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#^0.97.6"
+  }
+}
