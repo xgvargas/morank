@@ -1,3 +1,8 @@
+mixin myitem(name)
+  div
+    span.title #{name}:
+    span.content(id=name)
+
 doctype html
 html
   head
@@ -13,10 +18,11 @@ html
         .row
           .col.s12
             .input-field
-              input#title.validate(type="text" value="reservoir dogs")
+              input#title.validate.active(type="text")
+              //- input#title.validate(type="text" value="reservoir dogs")
               label Title
             .input-field
-              input#year.validate(type="number" value="111")
+              input#year.validate(type="number")
               label Year
         .row
           .col.s6.offset-s6
@@ -38,50 +44,28 @@ html
 
       #result
         .row
-          p Title:
-            span#Title
-          p Released:
-            span#Released
-          p Genre:
-            span#Genre
-          p Runtime:
-            span#Runtime
-          p Actors:
-            span#Actors
-          p Awards:
-            span#Awards
-          p Country:
-            span#Country
-          p Director:
-            span#Director
-          p Language:
-            span#Language
-          p Metascore:
-            span#Metascore
-          p Plot:
-            span#Plot
-          p Poster:
-            span#Poster
-          p Production:
-            span#Production
-          p Type:
-            span#Type
-          p Writer:
-            span#Writer
-          p imdbRating:
-            span#imdbRating
-          p imdbVotes:
-            span#imdbVotes
-          p tomatoFresh:
-            span#tomatoFresh
-          p tomatoMeter:
-            span#tomatoMeter
-          p tomatoRating:
-            span#tomatoRating
-          p tomatoReviews:
-            span#tomatoReviews
-          p tomatoRotten:
-            span#tomatoRotten
+          +myitem('Title')
+          +myitem('Released')
+          +myitem('Genre')
+          +myitem('Runtime')
+          +myitem('Actors')
+          +myitem('Awards')
+          +myitem('Country')
+          +myitem('Director')
+          +myitem('Language')
+          +myitem('Metascore')
+          +myitem('Plot')
+          +myitem('Poster')
+          +myitem('Production')
+          +myitem('Type')
+          +myitem('Writer')
+          +myitem('imdbRating')
+          +myitem('imdbVotes')
+          +myitem('tomatoFresh')
+          +myitem('tomatoMeter')
+          +myitem('tomatoRating')
+          +myitem('tomatoReviews')
+          +myitem('tomatoRotten')
 
     script(src="lib/jquery.min.js")
     script(src="lib/materialize.min.js")

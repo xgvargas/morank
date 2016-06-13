@@ -1,58 +1,75 @@
-# getRank = (title, year, cb = formatRank) ->
-#     par =
-#         plot: 'short'
-#         r: 'json'
-#         t: title
-#         tomatoes: 'true'
+getRank = (title, year, cb = formatRank) ->
+    par =
+        plot: 'short'
+        r: 'json'
+        t: title
+        tomatoes: 'true'
 
-#     par.y = year if year != null and year != ''
+    par.y = year if year != null and year != ''
 
-#     console.log title, year
+    console.log title, year
 
-#     $.getJSON 'http://www.omdbapi.com', par, cb
+    $.getJSON 'http://www.omdbapi.com', par, cb
 
-# formatRank = (data) ->
-#     console.log data
-#     $('#spinner').hide()
+formatRank = (data) ->
+    console.log data
+    $('#spinner').hide()
 
-#     if data.Response == "False"
-#         $('#failed').show()
-#         # $('#form').show()
-#     else
-#         $('#form').hide()
-#         $('#result').show()
-#         $('#Title').html data.Title
-#         $('#Released').html data.Released
-#         $('#Genre').html data.Genre
-#         $('#Runtime').html data.Runtime
-#         $('#Actors').html data.Actors
-#         $('#Awards').html data.Awards
-#         $('#Country').html data.Country
-#         $('#Director').html data.Director
-#         $('#Language').html data.Language
-#         $('#Metascore').html data.Metascore
-#         $('#Plot').html data.Plot
-#         $('#Poster').html data.Poster
-#         $('#Production').html data.Production
-#         $('#Type').html data.Type
-#         $('#Writer').html data.Writer
-#         $('#imdbRating').html data.imdbRating
-#         $('#imdbVotes').html data.imdbVotes
-#         $('#tomatoFresh').html data.tomatoFresh
-#         $('#tomatoMeter').html data.tomatoMeter
-#         $('#tomatoRating').html data.tomatoRating
-#         $('#tomatoReviews').html data.tomatoReviews
-#         $('#tomatoRotten').html data.tomatoRotten
-#         return
+    if data.Response == "False"
+        $('#failed').show()
+        # $('#form').show()
+    else
+        $('#form').hide()
+        $('#result').show()
+        $('#Title').html data.Title
+        $('#Released').html data.Released
+        $('#Genre').html data.Genre
+        $('#Runtime').html data.Runtime
+        $('#Actors').html data.Actors
+        $('#Awards').html data.Awards
+        $('#Country').html data.Country
+        $('#Director').html data.Director
+        $('#Language').html data.Language
+        $('#Metascore').html data.Metascore
+        $('#Plot').html data.Plot
+        # $('#Poster').html data.Poster
+        $('#Production').html data.Production
+        $('#Type').html data.Type
+        $('#Writer').html data.Writer
+        $('#imdbRating').html data.imdbRating
+        $('#imdbVotes').html data.imdbVotes
+        $('#tomatoFresh').html data.tomatoFresh
+        $('#tomatoMeter').html data.tomatoMeter
+        $('#tomatoRating').html data.tomatoRating
+        $('#tomatoReviews').html data.tomatoReviews
+        $('#tomatoRotten').html data.tomatoRotten
+        $('body').css background: "url(#{data.Poster})"
+        return
 
 $ ->
-
     $('#search').click ->
         $('#failed').hide()
         $('#spinner').show()
-        chrome.runtime.getBackgroundPage (bgPage) ->
-            console.log bgPage
-            bgPage.getRank $('#title').val(), $('#year').val()
+        # chrome.runtime.getBackgroundPage (bgPage) ->
+        #     console.log bgPage
+        #     bgPage.getRank $('#title').val(), $('#year').val()
+        getRank $('#title').val(), $('#year').val()
+
+    chrome.runtime.onMessage.addListener (message, sender, callback) ->
+        $('#title').val message.selection
+        $('#year').val('')
+        Materialize.updateTextFields()
+
+    chrome.tabs.executeScript code: "chrome.runtime.sendMessage({selection: window.getSelection().toString() });"
+
+
+# chrome.runtime.onMessage.addListener (message, sender, callback) ->
+#     if message.query?
+#         console.log "trabalhando... #{message.query}"
+#         getRank message.query
+#         # callback()
+
+
 
 
 # Actors: "Harvey Keitel, Tim Roth, Michael Madsen, Chris Penn"

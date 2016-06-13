@@ -17,9 +17,8 @@
     },
 
     "permissions": [
-        "tabs",
-        "contextMenus",
-        "notifications"
+        "http://*/",
+        "tabs"
     ],
 
     "browser_action": {
@@ -29,7 +28,7 @@
         },
         "default_title": "Tagged",
         "default_popup": "popup.html"
-    },
+    }
 
     /*"options_ui": {
         "page"         : "options.html",
@@ -40,11 +39,11 @@
         "keyword": "tag"
     },*/
 
-    "background": {
-        "persistent": false,
-        "scripts": [
-            "lib/jquery.min.js",
-            "background.js"
-        ]
-    }
+    // "background": {
+    //     "persistent": false,
+    //     "scripts": [
+    //         "lib/jquery.min.js",
+    //         "background.js"
+    //     ]
+    // }
 }

@@ -1,7 +1,7 @@
 /**!
 */
 
-body{
+body {
     width: 300px;
 }
 
@@ -13,4 +13,17 @@ body{
     text-align: center;
     font-size: 140%;
     font-weight: bold;
+}
+
+#result {
+    text-shadow: 0px 0px 8px white;
+
+    .title {
+        font-weight: bold;
+    }
+
+    .content {
+        font-weight: none;
+        margin-left: 5px;
+    }
 }
