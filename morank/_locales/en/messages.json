@@ -1,5 +1,0 @@
-{
-    "description" : { "message": "Movie Ranking" },
-    "popup_title" : { "message": "Title" },
-    "popup_year"  : { "message": "Year" }
-}

@@ -7,16 +7,18 @@ var sourcemaps = require('gulp-sourcemaps');
 var gutil      = require('gulp-util');
 var uglify     = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
-
+var map        = require('map-stream');
+var yaml       = require('js-yaml');
 
 var DEVMODE = true;
 var DST     = 'morank/';
 
 
-gulp.task('default', ['sass', 'coffee', 'jade'], function(){
+gulp.task('default', ['sass', 'coffee', 'jade', 'yaml'], function(){
     gulp.watch('scss/**/*.scss', ['sass']);
     gulp.watch('coffee/**/*.coffee', ['coffee']);
     gulp.watch('jade/**/*.jade', ['jade']);
+    gulp.watch('**/*.yaml', ['yaml']);
 });
 
 gulp.task('dist', function(){
@@ -24,7 +26,7 @@ gulp.task('dist', function(){
     gulp.start('build');
 });
 
-gulp.task('build', ['sass', 'coffee', 'jade', 'png']);
+gulp.task('build', ['sass', 'coffee', 'jade', 'png', 'yaml']);
 
 gulp.task('sass', function() {
     return gulp.src('scss/*.scss')
@@ -49,6 +51,29 @@ gulp.task('jade', function() {
             client: false,
             pretty: DEVMODE,
         })) .on('error', gutil.log)
+        .pipe(gulp.dest(DST));
+});
+
+gulp.task('yaml', function(){
+    gulp.src('**/*.yaml')
+        .pipe(map(function(file, cb){
+            if(file.isNull()) return cb(null, file); // pass along
+            if(file.isStream()) return cb(new Error("Streaming not supported"));
+
+            var json;
+
+            try {
+                json = yaml.load(String(file.contents.toString('utf8')));
+            } catch(e) {
+                console.log(e);
+                console.log(json);
+            }
+
+            file.path = gutil.replaceExtension(file.path, '.json');
+            file.contents = new Buffer(JSON.stringify(json, null, '  '));
+
+            cb(null, file);
+        }))
         .pipe(gulp.dest(DST));
 });
 
