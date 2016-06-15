@@ -1,6 +1,48 @@
 description:
-    message: Avaliador de Filmes e Séries
+    message: Movie Ranking
+
 popup_title:
     message: Título
 popup_year:
     message: Ano
+
+popup_type:
+    message: Tipo
+popup_genre:
+    message: Gênero
+popup_runtime:
+    message: Tempo
+popup_released:
+    message: Lançamento
+popup_country:
+    message: País
+popup_director:
+    message: Diretor
+popup_writer:
+    message: Escritor
+popup_language:
+    message: Língua
+popup_metascore:
+    message: Metascore
+popup_imdbrating:
+    message: imdbRating
+popup_imdbvotes:
+    message: imdbVotes
+popup_tomatofresh:
+    message: tomatoFresh
+popup_tomatometer:
+    message: tomatoMeter
+popup_tomatorating:
+    message: tomatoRating
+popup_tomatoreviews:
+    message: tomatoReviews
+popup_tomatorotten:
+    message: tomatoRotten
+popup_actors:
+    message: Atores
+popup_plot:
+    message: Resumo
+popup_production:
+    message: Produção
+popup_awards:
+    message: Premios

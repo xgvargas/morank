@@ -1,6 +1,48 @@
 description:
     message: Movie Ranking
+
 popup_title:
     message: Title
 popup_year:
     message: Year
+
+popup_type:
+    message: Type
+popup_genre:
+    message: Genre
+popup_runtime:
+    message: Runtime
+popup_released:
+    message: Released
+popup_country:
+    message: Country
+popup_director:
+    message: Director
+popup_writer:
+    message: Writer
+popup_language:
+    message: Language
+popup_metascore:
+    message: Metascore
+popup_imdbrating:
+    message: imdbRating
+popup_imdbvotes:
+    message: imdbVotes
+popup_tomatofresh:
+    message: tomatoFresh
+popup_tomatometer:
+    message: tomatoMeter
+popup_tomatorating:
+    message: tomatoRating
+popup_tomatoreviews:
+    message: tomatoReviews
+popup_tomatorotten:
+    message: tomatoRotten
+popup_actors:
+    message: Actors
+popup_plot:
+    message: Plot
+popup_production:
+    message: Production
+popup_awards:
+    message: Awards

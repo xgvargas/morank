@@ -1,7 +1,7 @@
 mixin myitem(name)
-  div
-    span.title #{name}:
-    span.content(id=name)
+  div(id=name)
+    .title #{name}:
+    .content
 
 doctype html
 html
@@ -20,15 +20,15 @@ html
             .input-field
               input#title.validate.active(type="text")
               //- input#title.validate(type="text" value="reservoir dogs")
-              label Title
+              label#langTitle
             .input-field
               input#year.validate(type="number")
-              label Year
+              label#langYear
         .row
           .col.s6.offset-s6
             a#search.waves-effect.waves-light.btn Procurar
 
-      #spinner
+      #spinner.center-align
         .preloader-wrapper.active
           .spinner-layer.spinner-red-only
             .circle-clipper.left
@@ -44,27 +44,31 @@ html
 
       #result
         .row
-          +myitem('Title')
-          +myitem('Released')
-          +myitem('Genre')
-          +myitem('Runtime')
+          .col.s7
+            img#poster.materialboxed
+          .col.s5
+            +myitem('Title')
+            +myitem('Type')
+            +myitem('Genre')
+            +myitem('Runtime')
+            +myitem('Released')
+            +myitem('Country')
+            +myitem('Director')
+            +myitem('Writer')
+            +myitem('Language')
+            +myitem('Metascore')
+            +myitem('imdbRating')
+            +myitem('imdbVotes')
+            +myitem('tomatoFresh')
+            +myitem('tomatoMeter')
+            +myitem('tomatoRating')
+            +myitem('tomatoReviews')
+            +myitem('tomatoRotten')
+        .row
           +myitem('Actors')
-          +myitem('Awards')
-          +myitem('Country')
-          +myitem('Director')
-          +myitem('Language')
-          +myitem('Metascore')
           +myitem('Plot')
           +myitem('Production')
-          +myitem('Type')
-          +myitem('Writer')
-          +myitem('imdbRating')
-          +myitem('imdbVotes')
-          +myitem('tomatoFresh')
-          +myitem('tomatoMeter')
-          +myitem('tomatoRating')
-          +myitem('tomatoReviews')
-          +myitem('tomatoRotten')
+          +myitem('Awards')
 
     script(src="lib/jquery.min.js")
     script(src="lib/materialize.min.js")

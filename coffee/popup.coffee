@@ -21,32 +21,57 @@ formatRank = (data) ->
     else
         $('#form').hide()
         $('#result').show()
-        $('#Title').html data.Title
-        $('#Released').html data.Released
-        $('#Genre').html data.Genre
-        $('#Runtime').html data.Runtime
-        $('#Actors').html data.Actors
-        $('#Awards').html data.Awards
-        $('#Country').html data.Country
-        $('#Director').html data.Director
-        $('#Language').html data.Language
-        $('#Metascore').html data.Metascore
-        $('#Plot').html data.Plot
-        # $('#Poster').html data.Poster
-        $('#Production').html data.Production
-        $('#Type').html data.Type
-        $('#Writer').html data.Writer
-        $('#imdbRating').html data.imdbRating
-        $('#imdbVotes').html data.imdbVotes
-        $('#tomatoFresh').html data.tomatoFresh
-        $('#tomatoMeter').html data.tomatoMeter
-        $('#tomatoRating').html data.tomatoRating
-        $('#tomatoReviews').html data.tomatoReviews
-        $('#tomatoRotten').html data.tomatoRotten
-        $('body').css background: "url(#{data.Poster})"
+        $('#Title .content').html data.Title
+        $('#Released .content').html data.Released
+        $('#Genre .content').html data.Genre
+        $('#Runtime .content').html data.Runtime
+        $('#Actors .content').html data.Actors
+        $('#Awards .content').html data.Awards
+        $('#Country .content').html data.Country
+        $('#Director .content').html data.Director
+        $('#Language .content').html data.Language
+        $('#Metascore .content').html data.Metascore
+        $('#Plot .content').html data.Plot
+        $('#Production .content').html data.Production
+        $('#Type .content').html data.Type
+        $('#Writer .content').html data.Writer
+        $('#imdbRating .content').html data.imdbRating
+        $('#imdbVotes .content').html data.imdbVotes
+        $('#tomatoFresh .content').html data.tomatoFresh
+        $('#tomatoMeter .content').html data.tomatoMeter
+        $('#tomatoRating .content').html data.tomatoRating
+        $('#tomatoReviews .content').html data.tomatoReviews
+        $('#tomatoRotten .content').html data.tomatoRotten
+        # $('body').css background: "url(#{data.Poster})"
+        $('#poster').attr src: data.Poster
         return
 
 $ ->
+    $('#langTitle').html chrome.i18n.getMessage 'popup_title'
+    $('#langYear').html chrome.i18n.getMessage 'popup_year'
+
+    $('#Title .title').html chrome.i18n.getMessage 'popup_title'
+    $('#Type .title').html chrome.i18n.getMessage 'popup_type'
+    $('#Genre .title').html chrome.i18n.getMessage 'popup_genre'
+    $('#Runtime .title').html chrome.i18n.getMessage 'popup_runtime'
+    $('#Released .title').html chrome.i18n.getMessage 'popup_released'
+    $('#Country .title').html chrome.i18n.getMessage 'popup_country'
+    $('#Director .title').html chrome.i18n.getMessage 'popup_director'
+    $('#Writer .title').html chrome.i18n.getMessage 'popup_writer'
+    $('#Language .title').html chrome.i18n.getMessage 'popup_language'
+    $('#Metascore .title').html chrome.i18n.getMessage 'popup_metascore'
+    $('#imdbRating .title').html chrome.i18n.getMessage 'popup_imdbRating'
+    $('#imdbVotes .title').html chrome.i18n.getMessage 'popup_imdbVotes'
+    $('#tomatoFresh .title').html chrome.i18n.getMessage 'popup_tomatoFresh'
+    $('#tomatoMeter .title').html chrome.i18n.getMessage 'popup_tomatoMeter'
+    $('#tomatoRating .title').html chrome.i18n.getMessage 'popup_tomatoRating'
+    $('#tomatoReviews .title').html chrome.i18n.getMessage 'popup_tomatoReviews'
+    $('#tomatoRotten .title').html chrome.i18n.getMessage 'popup_tomatoRotten'
+    $('#Actors .title').html chrome.i18n.getMessage 'popup_actors'
+    $('#Plot .title').html chrome.i18n.getMessage 'popup_plot'
+    $('#Production .title').html chrome.i18n.getMessage 'popup_production'
+    $('#Awards .title').html chrome.i18n.getMessage 'popup_awards'
+
     $('#search').click ->
         $('#failed').hide()
         $('#spinner').show()
