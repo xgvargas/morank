@@ -57,13 +57,18 @@ html
             +myitem('Writer')
             +myitem('Language')
             +myitem('Metascore')
-            +myitem('imdbRating')
-            +myitem('imdbVotes')
-            +myitem('tomatoFresh')
-            +myitem('tomatoMeter')
-            +myitem('tomatoRating')
-            +myitem('tomatoReviews')
-            +myitem('tomatoRotten')
+            .row
+              .col.s6
+                a#lnkImdb.waves-effect.waves-light.btn IMDb
+                +myitem('imdbRating')
+                +myitem('imdbVotes')
+              .col.s6
+                a#lnkTomato.waves-effect.waves-light.btn Tomato
+                +myitem('tomatoFresh')
+                +myitem('tomatoMeter')
+                +myitem('tomatoRating')
+                +myitem('tomatoReviews')
+                +myitem('tomatoRotten')
         .row
           +myitem('Actors')
           +myitem('Plot')

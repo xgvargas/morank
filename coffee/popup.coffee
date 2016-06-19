@@ -7,8 +7,6 @@ getRank = (title, year, cb = formatRank) ->
 
     par.y = year if year != null and year != ''
 
-    console.log title, year
-
     $.getJSON 'http://www.omdbapi.com', par, cb
 
 formatRank = (data) ->
@@ -44,6 +42,8 @@ formatRank = (data) ->
         $('#tomatoRotten .content').html data.tomatoRotten
         # $('body').css background: "url(#{data.Poster})"
         $('#poster').attr src: data.Poster
+        $('#lnkImdb').attr href: "http://www.imdb.com/title/#{data.imdbID}/"
+        $('#lnkTomato').attr href: data.tomatoURL
         return
 
 $ ->
