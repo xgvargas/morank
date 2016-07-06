@@ -16,7 +16,7 @@ var DST     = 'morank/';
 gulp.task('default', ['sass', 'coffee', 'pug', 'yaml'], function(){
     gulp.watch('scss/**/*.scss', ['sass']);
     gulp.watch('coffee/**/*.coffee', ['coffee']);
-    gulp.watch('pug/**/*.jade', ['pug']);
+    gulp.watch('pug/**/*.pug', ['pug']);
     gulp.watch('**/*.yaml', ['yaml']);
 });
 
@@ -47,7 +47,7 @@ gulp.task('coffee', function() {
 });
 
 gulp.task('pug', function() {
-    return gulp.src('pug/*.jade') //oh owh
+    return gulp.src('pug/*.pug') //oh owh
         .pipe(pug({
             locals: {},
             client: false,
